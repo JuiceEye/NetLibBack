@@ -1,6 +1,20 @@
 package com.JavaEE.netlib.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="users")
 public class User {
+    @Id
+    @SequenceGenerator(
+            name = "userSequence",
+            sequenceName = "userSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "userSequence"
+    )
     private Long id;
     private String username;
     private String password;

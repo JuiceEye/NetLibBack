@@ -1,0 +1,6 @@
+com/JavaEE/netlib/database/DatabaseConnection.class
+com/JavaEE/netlib/models/User.class
+com/JavaEE/netlib/example/Main.class
+com/JavaEE/netlib/models/BookCatalogue.class
+com/JavaEE/netlib/models/Book.class
+com/JavaEE/netlib/models/Order.class

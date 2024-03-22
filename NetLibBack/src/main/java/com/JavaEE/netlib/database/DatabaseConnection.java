@@ -12,10 +12,8 @@ public class DatabaseConnection {
         try {
             return DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
-            // Обработка исключения SQLException
-            e.printStackTrace(); // Вывод информации об исключении в консоль
+            e.printStackTrace();
             throw new SQLException("Не удалось установить соединение с базой данных.", e);
-            // Пробрасываем исключение дальше, сохраняя информацию о предыдущем исключении (если оно было)
         }
     }
 }

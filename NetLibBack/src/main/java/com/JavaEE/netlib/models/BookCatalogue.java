@@ -1,10 +1,24 @@
 package com.JavaEE.netlib.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table
 public class BookCatalogue {
+    @Id
+    @SequenceGenerator(
+            name = "bookCatalogueSequence",
+            sequenceName = "bookSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "bookCatalogueSequence"
+    )
     private Long id;
+    @OneToMany(mappedBy = "catalogue", cascade = CascadeType.ALL)
     private List<Book> books;
 
     public BookCatalogue() {

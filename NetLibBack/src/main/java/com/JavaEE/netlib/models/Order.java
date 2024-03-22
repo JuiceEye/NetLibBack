@@ -1,10 +1,25 @@
 package com.JavaEE.netlib.models;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table
 public class Order {
+    @Id
+    @SequenceGenerator(
+            name = "orderSequence",
+            sequenceName = "orderSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "orderSequence"
+    )
     private Long id;
+    @ManyToOne
     private User user;
+    @OneToMany(mappedBy = "catalogue", cascade = CascadeType.ALL)
     private List<Book> books;
     private double totalPrice;
 

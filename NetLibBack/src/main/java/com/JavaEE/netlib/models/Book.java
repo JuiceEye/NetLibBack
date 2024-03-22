@@ -1,6 +1,20 @@
 package com.JavaEE.netlib.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Book {
+    @Id
+    @SequenceGenerator(
+            name = "bookSequence",
+            sequenceName = "bookSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "bookSequence"
+    )
     private Long id;
     private String title;
     private String author;
