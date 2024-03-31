@@ -1,6 +1,10 @@
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/models/BookCatalogue.java
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/models/Order.java
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/database/DatabaseConnection.java
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/models/Book.java
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/example/Main.java
-/Users/Anastasiya/Desktop/Java EE/2 semester/NetLib Final project/NetLibBack/NetLibBack/src/main/java/com/JavaEE/netlib/models/User.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\database\DatabaseConnection.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\model\Order.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\NetLibApplication.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\service\UserService.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\controller\BookController.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\repository\UserRepository.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\model\Book.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\model\User.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\repository\BookRepository.java
+C:\Users\coolf\Desktop\University\The 6th semester\Java-EE\NetLibBack\NetLibBack\src\main\java\com\JavaEE\netlib\controller\UserController.java

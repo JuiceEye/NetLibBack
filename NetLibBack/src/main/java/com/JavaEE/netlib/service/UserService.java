@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.service;
 
-import com.JavaEE.netlib.models.User;
+import com.JavaEE.netlib.model.User;
 import com.JavaEE.netlib.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class UserService {
         }
     }
 
-    public Optional<User> getByUsername(String login) {
-        return Optional.ofNullable(userRepository.findByUsername(login));
+    public Optional<User> getByUsername(String username) {
+        return Optional.ofNullable(userRepository.findByUsername(username));
     }
 }

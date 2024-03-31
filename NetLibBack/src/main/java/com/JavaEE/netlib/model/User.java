@@ -1,4 +1,4 @@
-package com.JavaEE.netlib.models;
+package com.JavaEE.netlib.model;
 
 import javax.persistence.*;
 
