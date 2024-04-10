@@ -19,7 +19,8 @@ public class BookController {
     }
 
     @PostMapping
-    public void createBook(@RequestBody Book book) throws Exception {
+    public String createBook(@RequestBody Book book) throws Exception {
         bookRepository.save(book);
+        return "Hello, World! This is endpoint 1.";
     }
 }
