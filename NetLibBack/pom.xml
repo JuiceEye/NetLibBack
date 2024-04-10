@@ -55,7 +55,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>NetLibApplication.java</mainClass>
+                            <mainClass>com.JavaEE.netlib.NetLibApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
