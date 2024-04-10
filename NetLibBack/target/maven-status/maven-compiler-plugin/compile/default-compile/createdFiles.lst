@@ -1,9 +1,7 @@
 com\JavaEE\netlib\repository\BookRepository.class
-com\JavaEE\netlib\model\Book.class
 com\JavaEE\netlib\controller\BookController.class
 com\JavaEE\netlib\controller\UserController.class
 com\JavaEE\netlib\NetLibApplication.class
 com\JavaEE\netlib\database\DatabaseConnection.class
 com\JavaEE\netlib\repository\UserRepository.class
-com\JavaEE\netlib\model\User.class
 com\JavaEE\netlib\service\UserService.class

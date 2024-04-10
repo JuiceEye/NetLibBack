@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.controller;
 
-import com.JavaEE.netlib.model.User;
+import com.JavaEE.netlib.domain.User;
 import com.JavaEE.netlib.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

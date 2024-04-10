@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.controller;
 
-import com.JavaEE.netlib.model.Book;
+import com.JavaEE.netlib.domain.Book;
 import com.JavaEE.netlib.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

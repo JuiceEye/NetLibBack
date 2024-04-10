@@ -1,9 +1,9 @@
-package com.JavaEE.netlib.model;
+package com.JavaEE.netlib.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name="books")
 public class Book {
     @Id
     @SequenceGenerator(
