@@ -23,4 +23,9 @@ public class BookController {
         bookRepository.save(book);
         return "Hello, World! This is endpoint 1.";
     }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello from BookController!";
+    }
 }
