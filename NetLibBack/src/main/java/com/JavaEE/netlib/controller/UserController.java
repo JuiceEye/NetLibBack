@@ -26,5 +26,6 @@ public class UserController {
     @PostMapping(path="/login")
     public void loginUser(@RequestBody User user) throws Exception {
         userService.loginUser(user);
+
     }
 }
