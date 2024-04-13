@@ -18,8 +18,13 @@ public class UserController {
         return userService.getByUsername(username);
     }
 
-    @PostMapping
+    @PostMapping(path="/register")
     public void createUser(@RequestBody User user) throws Exception {
         userService.saveUser(user);
+    }
+
+    @PostMapping(path="/login")
+    public void loginUser(@RequestBody User user) throws Exception {
+        userService.loginUser(user);
     }
 }
