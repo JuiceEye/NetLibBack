@@ -24,4 +24,8 @@ public class UserService {
     public Optional<User> getByUsername(String username) {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
+
+    public void loginUser(User user) {
+
+    }
 }
