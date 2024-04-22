@@ -2,6 +2,7 @@ package com.JavaEE.netlib.controller;
 
 import com.JavaEE.netlib.domain.User;
 import com.JavaEE.netlib.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 //ляля тополя
 @RestController
 @RequestMapping(path="/user")
+@RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
@@ -25,39 +27,4 @@ public class UserController {
     public void createUser(@RequestBody User user) throws Exception {
         userService.registerUser(user);
     }
-
-//    @PostMapping(path="/login")
-//    public void loginUser(@RequestBody User user) throws Exception {
-//        userService.loginUser(user);
-//    }
-
-//    @PostMapping("/login")
-//    public ResponseEntity<?> loginUser(@RequestBody User user, HttpSession session) {
-//        if (userService.loginUser(user.getUsername(), user.getPassword())) {
-//            session.setAttribute("username", user.getUsername());
-//            return ResponseEntity.ok("User authenticated successfully");
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
-//        }
-//    }
-//
-//    // инфа о текущем пользователе из сессии
-//    @GetMapping("/userInfo")
-//    public ResponseEntity<?> getCurrentUser(HttpSession session) {
-//        String username = (String) session.getAttribute("username");
-//        if (username != null) {
-//            return ResponseEntity.ok("Current user: " + username);
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated");
-//        }
-//    }
-//
-//    @PostMapping("/logout")
-//    public ResponseEntity<?> logoutUser(HttpSession session) {
-//        session.invalidate();
-//        return ResponseEntity.ok("User logged out successfully");
-//    }
-
-
-
 }
