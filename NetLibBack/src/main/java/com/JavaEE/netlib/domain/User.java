@@ -22,6 +22,17 @@ public class User {
     private String firstName;
     private String lastName;
 
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    private UserRole role;
+
+
     public User() {
     }
 

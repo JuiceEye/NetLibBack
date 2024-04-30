@@ -1,7 +1,9 @@
 package com.JavaEE.netlib.security;
 
 //import com.JavaEE.netlib.domain.UserRole;
+
 import com.JavaEE.netlib.domain.User;
+import com.JavaEE.netlib.domain.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,8 +20,8 @@ public class UserSecurity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(user.getRole().equals(AppUserRole.ADMIN)){
-            return Arrays.asList(new SimpleGrantedAuthority(user.getRole().toString()), new SimpleGrantedAuthority(AppUserRole.USER.toString()));
+        if(user.getRole().equals(UserRole.ADMIN)){
+            return Arrays.asList(new SimpleGrantedAuthority(user.getRole().toString()), new SimpleGrantedAuthority(UserRole.USER.toString()));
         } else {
             return Arrays.asList(new SimpleGrantedAuthority(user.getRole().toString()));
         }
