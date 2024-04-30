@@ -27,7 +27,7 @@ public class SecurityConfiguration {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    @Bean
+    @Autowired
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
@@ -38,15 +38,15 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(withDefaults())
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/user/id/**").permitAll()
-                        .requestMatchers("/api/user").permitAll()
-                        .requestMatchers("/api/user/register").permitAll()
-                        .requestMatchers("/api/post/id/**").permitAll()
-                        .requestMatchers("/api/post/user/**").permitAll()
-                        .requestMatchers("/api/post").permitAll()
-                        .requestMatchers("/api/comment/id/**").permitAll()
-                        .requestMatchers("/api/comment/post/**").permitAll()
-                        .requestMatchers("/api/comment").permitAll()
+                        //.requestMatchers("/user/id/**").permitAll()
+                        .requestMatchers("/user").permitAll()
+                        .requestMatchers("/user/register").permitAll()
+//                        .requestMatchers("/post/id/**").permitAll()
+//                        .requestMatchers("/post/user/**").permitAll()
+//                        .requestMatchers("/post").permitAll()
+//                        .requestMatchers("/comment/id/**").permitAll()
+//                        .requestMatchers("/comment/post/**").permitAll()
+//                        .requestMatchers("/comment").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new SimpleLoggingFilter(), BasicAuthenticationFilter.class);
         return http.build();
