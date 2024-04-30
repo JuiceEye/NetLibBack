@@ -1,62 +1,96 @@
 package com.JavaEE.netlib.controller;
 
 import com.JavaEE.netlib.domain.User;
-import com.JavaEE.netlib.service.UserService;
+import com.JavaEE.netlib.domain.UserRole;
+import com.JavaEE.netlib.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
-
-//TEST TEXT ************************************************
+//TEST TEXT ************************************************!!
+//ляля тополя
 @RestController
 @RequestMapping(path="/user")
+@RequiredArgsConstructor
 public class UserController {
     @Autowired
-    private UserService userService;
+    private final UserRepository repository;
 
-    @GetMapping(path = "/{username}")
-    public Optional<User> getUser(@PathVariable String username) {
-        return userService.getByUsername(username);
+    private final PasswordEncoder encoder = new BCryptPasswordEncoder();
+
+
+    record NewUserRequest(
+            Long id,
+            String username,
+            String password,
+            String firstName,
+            String lastName,
+            String role
+    ){}
+
+//    record PwdUserRequest(
+//            String password
+//    ){}
+
+//    @GetMapping(path = "/{username}")
+//    public Optional<User> getUser(@PathVariable String username) {
+//        return userService.getByUsername(username);
+//    }
+
+
+    @GetMapping("/login")
+    public ResponseEntity<User> getAuth(@AuthenticationPrincipal UserDetails userAuth){
+        try{
+            User user = repository.findByUsername(userAuth.getUsername());
+            System.out.println("OK!!!!!!!!");
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (NullPointerException e){
+            System.out.println("Bad credentials");
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
 
-    @PostMapping(path="/register")
-    public void createUser(@RequestBody User user) throws Exception {
-        userService.registerUser(user);
+    @PostMapping("/register")
+    public ResponseEntity<User> addUser(@RequestBody NewUserRequest request,
+                                           @AuthenticationPrincipal UserDetails userAuth){
+        try{
+            if(UserRole.valueOf(request.role()).equals(UserRole.ADMIN)){
+                if(userAuth.getAuthorities().contains(new SimpleGrantedAuthority(UserRole.ADMIN.toString()))){
+                    User user = new User();
+                    user.setUsername(request.username());
+                    user.setPassword(encoder.encode(request.password()));
+                    user.setFirstName(request.firstName());
+                    user.setLastName(request.lastName());
+                    user.setRole(UserRole.valueOf(request.role));
+                    repository.save(user);
+                    User user1 = repository.findByUsername(user.getUsername());
+                    return new ResponseEntity<>(user1, HttpStatus.OK);
+                } else {
+                    System.out.println("Error 1");
+                    return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+                }
+            } else {
+                User user = new User();
+                user.setUsername(request.username());
+                user.setPassword(encoder.encode(request.password()));
+                user.setFirstName(request.firstName());
+                user.setLastName(request.lastName());
+                user.setRole(UserRole.valueOf(request.role));
+                repository.save(user);
+                User user1 = repository.findByUsername(user.getUsername());
+                return new ResponseEntity<>(user1, HttpStatus.OK);
+            }
+        } catch (NullPointerException e){
+            System.out.println("Error 2");
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
-
-//    @PostMapping(path="/login")
-//    public void loginUser(@RequestBody User user) throws Exception {
-//        userService.loginUser(user);
-//    }
-
-//    @PostMapping("/login")
-//    public ResponseEntity<?> loginUser(@RequestBody User user, HttpSession session) {
-//        if (userService.loginUser(user.getUsername(), user.getPassword())) {
-//            session.setAttribute("username", user.getUsername());
-//            return ResponseEntity.ok("User authenticated successfully");
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
-//        }
-//    }
-//
-//    // инфа о текущем пользователе из сессии
-//    @GetMapping("/userInfo")
-//    public ResponseEntity<?> getCurrentUser(HttpSession session) {
-//        String username = (String) session.getAttribute("username");
-//        if (username != null) {
-//            return ResponseEntity.ok("Current user: " + username);
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated");
-//        }
-//    }
-//
-//    @PostMapping("/logout")
-//    public ResponseEntity<?> logoutUser(HttpSession session) {
-//        session.invalidate();
-//        return ResponseEntity.ok("User logged out successfully");
-//    }
-
-
-
 }
