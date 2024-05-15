@@ -13,19 +13,14 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @PostMapping("/create")
+    public String createBook(@RequestBody Book book) throws Exception {
+        bookRepository.save(book);
+        return "Book created successfully!";
+    }
+
     @GetMapping(path = "/{title}")
     public Optional<Book> getBook(@PathVariable String title) {
         return Optional.ofNullable(bookRepository.findBookByTitle(title));
-    }
-
-    @PostMapping
-    public String createBook(@RequestBody Book book) throws Exception {
-        bookRepository.save(book);
-        return "Hello, World! This is endpoint 1.";
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello from BookController!";
     }
 }

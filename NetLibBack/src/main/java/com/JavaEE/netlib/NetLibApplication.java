@@ -17,9 +17,6 @@ public class NetLibApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     public void sendEmail() {
-//        senderService.sendMail("iruzhilov@gmail.com", "люблю тётю Юлю", "тётю Юля крашиха");
-//        senderService.sendMail("sapargali.alimkhan@gmail.com", "люблю тётю Баян", "тётя Баян крашиха");
-        senderService.sendMail("dilya-zh04@mail.ru", "люблю дильназ", "люблю дильназ");
 
     }
 }
