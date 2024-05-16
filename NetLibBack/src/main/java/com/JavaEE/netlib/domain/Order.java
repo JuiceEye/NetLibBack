@@ -1,11 +1,13 @@
 package com.JavaEE.netlib.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
-@Table(name="orders")
+@Table(
+        name = "orders"
+)
 public class Order {
     @Id
     @SequenceGenerator(
@@ -20,24 +22,29 @@ public class Order {
     private Long id;
     @ManyToOne
     private User user;
+//    @OneToMany(
+//            mappedBy = "order",
+//            cascade = {CascadeType.ALL}
+//    )
+//    private List<Book> books;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<Book> books;
-
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
     private double totalPrice;
 
     public Order() {
     }
 
-    public Order(Long id, User user, List<Book> books, double totalPrice) {
+    public Order(Long id, User user, Book book, double totalPrice) {
         this.id = id;
         this.user = user;
-        this.books = books;
+        this.book = book;
         this.totalPrice = totalPrice;
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -45,28 +52,26 @@ public class Order {
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return this.totalPrice;
     }
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
 }
-
