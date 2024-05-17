@@ -31,8 +31,8 @@ public class UserController {
             Long id,
             String username,
             String password,
-            String firstName,
-            String lastName,
+            String first_name,
+            String last_name,
             String role
     ){}
 
@@ -44,6 +44,16 @@ public class UserController {
 //    public Optional<User> getUser(@PathVariable String username) {
 //        return userService.getByUsername(username);
 //    }
+
+    @GetMapping(path = "/{username}")
+    public ResponseEntity<?> getUser(@PathVariable String username) {
+        User user = repository.findByUsername(username);
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("User doesn't exist.", HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     @GetMapping("/login")
@@ -67,8 +77,8 @@ public class UserController {
                     User user = new User();
                     user.setUsername(request.username());
                     user.setPassword(encoder.encode(request.password()));
-                    user.setFirstName(request.firstName());
-                    user.setLastName(request.lastName());
+                    user.setFirstName(request.first_name());
+                    user.setLastName(request.last_name());
                     user.setRole(UserRole.valueOf(request.role));
                     repository.save(user);
                     User user1 = repository.findByUsername(user.getUsername());
@@ -81,8 +91,8 @@ public class UserController {
                 User user = new User();
                 user.setUsername(request.username());
                 user.setPassword(encoder.encode(request.password()));
-                user.setFirstName(request.firstName());
-                user.setLastName(request.lastName());
+                user.setFirstName(request.first_name());
+                user.setLastName(request.last_name());
                 user.setRole(UserRole.valueOf(request.role));
                 repository.save(user);
                 User user1 = repository.findByUsername(user.getUsername());

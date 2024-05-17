@@ -38,15 +38,11 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(withDefaults())
                 .authorizeHttpRequests(authz -> authz
-                        //.requestMatchers("/user/id/**").permitAll()
                         .requestMatchers("/user").permitAll()
                         .requestMatchers("/user/register").permitAll()
-//                        .requestMatchers("/post/id/**").permitAll()
-//                        .requestMatchers("/post/user/**").permitAll()
-//                        .requestMatchers("/post").permitAll()
-//                        .requestMatchers("/comment/id/**").permitAll()
-//                        .requestMatchers("/comment/post/**").permitAll()
-//                        .requestMatchers("/comment").permitAll()
+                        .requestMatchers("/user/login").permitAll()
+                        .requestMatchers("/book/create").permitAll()
+                        .requestMatchers("/order/create").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new SimpleLoggingFilter(), BasicAuthenticationFilter.class);
         return http.build();

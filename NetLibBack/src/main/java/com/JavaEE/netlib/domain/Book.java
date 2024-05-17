@@ -28,14 +28,19 @@ public class Book {
     private String author;
     private String genre;
     private double price;
-    @ManyToOne
-    private Order order;
 
     public Book() {
     }
 
     public Book(Long id, String title, String author, String genre, double price) {
         this.id = id;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.price = price;
+    }
+
+    public Book(String title, String author, String genre, double price) {
         this.title = title;
         this.author = author;
         this.genre = genre;

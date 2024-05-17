@@ -21,6 +21,7 @@ public class Order {
     )
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 //    @OneToMany(
 //            mappedBy = "order",
@@ -31,16 +32,18 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
-    private double totalPrice;
 
     public Order() {
     }
 
     public Order(Long id, User user, Book book, double totalPrice) {
-        this.id = id;
         this.user = user;
         this.book = book;
-        this.totalPrice = totalPrice;
+    }
+
+    public Order(User user, Book book, double totalPrice) {
+        this.user = user;
+        this.book = book;
     }
 
     public Long getId() {
@@ -65,13 +68,5 @@ public class Order {
 
     public void setBook(Book book) {
         this.book = book;
-    }
-
-    public double getTotalPrice() {
-        return this.totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
     }
 }

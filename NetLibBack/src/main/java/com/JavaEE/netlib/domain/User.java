@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="users")
 public class User {
-    //@Column(unique = true)
     @Id
     @SequenceGenerator(
             name = "userSequence",
@@ -19,7 +18,9 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private UserRole role;
 
@@ -27,7 +28,6 @@ public class User {
     }
 
     public User(Long id, String username, String password, String firstName, String lastName, UserRole role) {
-        this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
