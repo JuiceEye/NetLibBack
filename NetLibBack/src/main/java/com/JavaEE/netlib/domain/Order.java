@@ -1,6 +1,7 @@
 package com.JavaEE.netlib.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 )
 public class Order {
     @Id
+    @NotNull
     @SequenceGenerator(
             name = "orderSequence",
             sequenceName = "orderSequence",

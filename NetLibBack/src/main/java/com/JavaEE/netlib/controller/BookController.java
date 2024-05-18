@@ -3,6 +3,8 @@ package com.JavaEE.netlib.controller;
 import com.JavaEE.netlib.domain.Book;
 import com.JavaEE.netlib.repository.BookRepository;
 import java.util.Optional;
+
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +24,15 @@ public class BookController {
     public BookController() {
     }
 
+    @Operation(summary = "Create new book")
     @PostMapping({"/create"})
     public String createBook(@RequestBody Book book) throws Exception {
         this.bookRepository.save(book);
         return "Book created successfully!";
     }
 
+    @Operation(summary = "Book Info",
+            description = "Book information in JSON-format.")
     @GetMapping(
             path = {"/{title}"}
     )

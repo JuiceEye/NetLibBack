@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(
@@ -14,6 +15,7 @@ import jakarta.persistence.Table;
 )
 public class Book {
     @Id
+    @NotNull
     @SequenceGenerator(
             name = "bookSequence",
             sequenceName = "bookSequence",
@@ -24,9 +26,11 @@ public class Book {
             generator = "bookSequence"
     )
     private Long id;
+    @NotNull
     private String title;
     private String author;
     private String genre;
+    @NotNull
     private double price;
 
     public Book() {

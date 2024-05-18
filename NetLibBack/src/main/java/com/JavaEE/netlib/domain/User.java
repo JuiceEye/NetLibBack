@@ -1,11 +1,14 @@
 package com.JavaEE.netlib.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
 public class User {
     @Id
+    @NotNull
     @SequenceGenerator(
             name = "userSequence",
             sequenceName = "userSequence",
@@ -16,12 +19,20 @@ public class User {
             generator = "userSequence"
     )
     private Long id;
+    @NotNull
+    @Size(min = 1, max = 20)
     private String username;
+    @NotNull
+    @Size(min = 8, max = 50)
     private String password;
+
+    @Size(min = 1, max = 20)
     @Column(name = "first_name")
     private String firstName;
+    @Size(min = 1, max = 20)
     @Column(name = "last_name")
     private String lastName;
+    @NotNull
     private UserRole role;
 
     public User() {
