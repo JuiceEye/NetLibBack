@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -84,7 +85,6 @@ public class UserController {
                     User user1 = repository.findByUsername(user.getUsername());
                     return new ResponseEntity<>(user1, HttpStatus.OK);
                 } else {
-                    System.out.println("Error 1");
                     return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
                 }
             } else {
@@ -98,8 +98,9 @@ public class UserController {
                 User user1 = repository.findByUsername(user.getUsername());
                 return new ResponseEntity<>(user1, HttpStatus.OK);
             }
+        } catch (BadCredentialsException e){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (NullPointerException e){
-            System.out.println("Error 2");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
