@@ -13,10 +13,11 @@ public class NetLibApplication {
     private EmailSenderService senderService;
     public static void main(String[] args) {
         SpringApplication.run(NetLibApplication.class, args);
+
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void sendEmail() {
-
+        senderService.sendMail("cool.faruh42@gmail.com", "Testmail ssubject", "Testmail body");
     }
 }
