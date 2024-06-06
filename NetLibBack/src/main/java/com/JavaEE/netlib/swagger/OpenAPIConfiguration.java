@@ -1,4 +1,4 @@
-package com.JavaEE.netlib.security.config.swagger;
+package com.JavaEE.netlib.swagger;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

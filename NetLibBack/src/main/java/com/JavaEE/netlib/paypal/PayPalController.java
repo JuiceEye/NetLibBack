@@ -1,5 +1,6 @@
 package com.JavaEE.netlib.paypal;
 
+import com.JavaEE.netlib.paypal.PayPalService;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
