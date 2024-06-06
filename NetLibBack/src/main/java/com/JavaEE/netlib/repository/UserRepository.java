@@ -1,7 +1,7 @@
 package com.JavaEE.netlib.repository;
 
 
-import com.JavaEE.netlib.domain.User;
+import com.JavaEE.netlib.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

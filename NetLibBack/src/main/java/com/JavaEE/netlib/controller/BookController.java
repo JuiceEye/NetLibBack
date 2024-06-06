@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.controller;
 
-import com.JavaEE.netlib.domain.Book;
+import com.JavaEE.netlib.models.Book;
 import com.JavaEE.netlib.repository.BookRepository;
 import java.util.Optional;
 

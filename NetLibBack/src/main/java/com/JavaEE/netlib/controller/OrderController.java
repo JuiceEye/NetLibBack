@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.controller;
 
-import com.JavaEE.netlib.domain.Order;
+import com.JavaEE.netlib.models.Order;
 import com.JavaEE.netlib.repository.OrderRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

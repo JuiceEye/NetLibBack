@@ -1,4 +1,4 @@
-package com.JavaEE.netlib.domain;
+package com.JavaEE.netlib.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

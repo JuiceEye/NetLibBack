@@ -2,8 +2,8 @@ package com.JavaEE.netlib.security;
 
 //import com.JavaEE.netlib.domain.UserRole;
 
-import com.JavaEE.netlib.domain.User;
-import com.JavaEE.netlib.domain.UserRole;
+import com.JavaEE.netlib.models.User;
+import com.JavaEE.netlib.models.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

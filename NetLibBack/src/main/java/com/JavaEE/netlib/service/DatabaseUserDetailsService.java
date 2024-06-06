@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.service;
 
-import com.JavaEE.netlib.domain.User;
+import com.JavaEE.netlib.models.User;
 import com.JavaEE.netlib.repository.UserRepository;
 import com.JavaEE.netlib.security.UserSecurity;
 import org.springframework.beans.factory.annotation.Autowired;

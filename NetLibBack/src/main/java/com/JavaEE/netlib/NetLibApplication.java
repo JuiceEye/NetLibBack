@@ -17,6 +17,6 @@ public class NetLibApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     public void sendEmail() {
-
+        //Calls of the function that sends emails
     }
 }

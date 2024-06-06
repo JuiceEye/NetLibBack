@@ -1,6 +1,6 @@
 package com.JavaEE.netlib.repository;
 
-import com.JavaEE.netlib.domain.Order;
+import com.JavaEE.netlib.models.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

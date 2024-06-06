@@ -1,7 +1,7 @@
 package com.JavaEE.netlib.controller;
 
-import com.JavaEE.netlib.domain.User;
-import com.JavaEE.netlib.domain.UserRole;
+import com.JavaEE.netlib.models.User;
+import com.JavaEE.netlib.models.UserRole;
 import com.JavaEE.netlib.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
